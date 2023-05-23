@@ -30,15 +30,15 @@ class HomeViewController: UIViewController {
     }
     
     func showSidebar() {
-        // Create a sidebar view controller and add it as a child view controller
+        //MARK: -  Create a sidebar view controller and add it as a child view controller
         sidebarViewController = SideBarViewController()
         addChild(sidebarViewController)
         view.addSubview(sidebarViewController.view)
         
-        // Position the sidebar off screen
+        //MARK: - Position the sidebar off screen
         sidebarViewController.view.frame = CGRect(x: -sidebarWidth, y: 0, width: sidebarWidth, height: view.frame.height)
         
-        // Animate the sidebar onto the screen
+        //MARK: - Animate the sidebar onto the screen
         UIView.animate(withDuration: 0.3) {
             self.sidebarViewController.view.frame = CGRect(x: 0, y: 0, width: self.sidebarWidth, height: self.view.frame.height)
         }
@@ -47,14 +47,14 @@ class HomeViewController: UIViewController {
     }
     
     func hideSidebar() {
-        // Animate the sidebar off screen
+        //MARK: - Animate the sidebar off screen
         UIView.animate(withDuration: 0.3, animations: {
             self.sidebarViewController.view.frame = CGRect(x: CGFloat(-self.sidebarWidth), y: 0, width: self.sidebarWidth, height: self.view.frame.height)
         }) { (completed) in
-            // Remove the sidebar view controller from the parent view controller
+            //MARK: - Remove the sidebar view controller from the parent view controller
             self.sidebarViewController.view.removeFromSuperview()
             self.sidebarViewController.removeFromParent()
-            //self.sidebarViewController = nil
+            //MARK: - self.sidebarViewController = nil
         }
         
         sidebarShowing = false

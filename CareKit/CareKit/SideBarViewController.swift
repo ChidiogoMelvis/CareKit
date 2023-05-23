@@ -12,7 +12,7 @@ class SideBarViewController: UIViewController, UITableViewDataSource, UITableVie
     let items = ["Item 1", "Item 2", "Item 3"]
     var didSelectItem: ((String) -> Void)?
     
-    // Create and configure the table view
+    //MARK: - Create and configure the table view
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -29,7 +29,6 @@ class SideBarViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     // MARK: - Table view data source
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -41,7 +40,6 @@ class SideBarViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     // MARK: - Table view delegate
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Call the completion block with the selected item
         let selectedItem = items[indexPath.row]
