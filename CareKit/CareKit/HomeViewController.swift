@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
+        view.backgroundColor = .darkGray
         let sidebarButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .plain, target: self, action: #selector(toggleSidebar))
         sidebarButton.tintColor = .black
         navigationItem.leftBarButtonItem = sidebarButton

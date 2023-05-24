@@ -25,7 +25,7 @@ class SideBarViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Menu"
-        view.backgroundColor = .red
+        view.backgroundColor = .white
     }
     
     // MARK: - Table view data source
