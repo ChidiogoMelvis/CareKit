@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041AA77F2A3A564D00032F0A /* CareKit in Frameworks */ = {isa = PBXBuildFile; productRef = 041AA77E2A3A564D00032F0A /* CareKit */; };
+		041AA7812A3A564D00032F0A /* CareKitStore in Frameworks */ = {isa = PBXBuildFile; productRef = 041AA7802A3A564D00032F0A /* CareKitStore */; };
+		041AA7832A3A564D00032F0A /* CareKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 041AA7822A3A564D00032F0A /* CareKitUI */; };
 		04A424082A0848AA00DE904F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A424072A0848AA00DE904F /* AppDelegate.swift */; };
 		04A4240A2A0848AA00DE904F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A424092A0848AA00DE904F /* SceneDelegate.swift */; };
 		04A4240C2A0848AA00DE904F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4240B2A0848AA00DE904F /* ViewController.swift */; };
@@ -60,6 +63,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041AA7812A3A564D00032F0A /* CareKitStore in Frameworks */,
+				041AA77F2A3A564D00032F0A /* CareKit in Frameworks */,
+				041AA7832A3A564D00032F0A /* CareKitUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +155,11 @@
 			dependencies = (
 			);
 			name = CareKit;
+			packageProductDependencies = (
+				041AA77E2A3A564D00032F0A /* CareKit */,
+				041AA7802A3A564D00032F0A /* CareKitStore */,
+				041AA7822A3A564D00032F0A /* CareKitUI */,
+			);
 			productName = CareKit;
 			productReference = 04A424042A0848AA00DE904F /* CareKit.app */;
 			productType = "com.apple.product-type.application";
@@ -221,6 +232,9 @@
 				Base,
 			);
 			mainGroup = 04A423FB2A0848A900DE904F;
+			packageReferences = (
+				041AA77D2A3A564D00032F0A /* XCRemoteSwiftPackageReference "CareKit" */,
+			);
 			productRefGroup = 04A424052A0848AA00DE904F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -610,6 +624,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		041AA77D2A3A564D00032F0A /* XCRemoteSwiftPackageReference "CareKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/carekit-apple/CareKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		041AA77E2A3A564D00032F0A /* CareKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 041AA77D2A3A564D00032F0A /* XCRemoteSwiftPackageReference "CareKit" */;
+			productName = CareKit;
+		};
+		041AA7802A3A564D00032F0A /* CareKitStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 041AA77D2A3A564D00032F0A /* XCRemoteSwiftPackageReference "CareKit" */;
+			productName = CareKitStore;
+		};
+		041AA7822A3A564D00032F0A /* CareKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 041AA77D2A3A564D00032F0A /* XCRemoteSwiftPackageReference "CareKit" */;
+			productName = CareKitUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 04A423FC2A0848A900DE904F /* Project object */;
 }
