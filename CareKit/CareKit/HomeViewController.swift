@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CareKit
 
 class HomeViewController: UIViewController {
     
