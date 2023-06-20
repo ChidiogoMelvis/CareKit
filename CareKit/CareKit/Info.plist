@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSHealthShareUsageDescription</key>
+	<string>We need access to your blood pressure data to provide health monitoring and insights in CareKit</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>We need write access to your blood pressure data to track your health measurements in CareKit</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
