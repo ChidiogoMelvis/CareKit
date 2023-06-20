@@ -115,26 +115,22 @@ class SideBarViewController: UIViewController, UITableViewDataSource, UITableVie
           let bloodPressureType = HKQuantityType.quantityType(forIdentifier: .bloodPressureSystolic)
               
               guard let bloodPressureQuantityType = bloodPressureType else {
-                  // Handle the absence of blood pressure type
+                 
                   return
               }
 
               healthStore.requestAuthorization(toShare: nil, read: [bloodPressureQuantityType]) { (success, error) in
                   if let error = error {
-                      // Handle the error
+                      
                       print("Error requesting HealthKit authorization: \(error.localizedDescription)")
                       return
                   }
 
                   if success {
-                      // Authorization granted
-                      // You can now access blood pressure data
                       
-                      // Retrieve the blood pressure readings
                       self.fetchBPReadings()
                   } else {
-                      // Authorization denied by the user
-                      // Handle the denial or display an appropriate message
+                     
                       print("HealthKit authorization denied by the user")
                   }
               }

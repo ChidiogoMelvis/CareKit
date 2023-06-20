@@ -66,7 +66,6 @@ class BPTableViewCell: UITableViewCell {
           }
 
           private func formatDate(_ date: Date) -> String {
-              // Format the date as per your requirements
               let dateFormatter = DateFormatter()
               dateFormatter.dateStyle = .medium
               dateFormatter.timeStyle = .short
