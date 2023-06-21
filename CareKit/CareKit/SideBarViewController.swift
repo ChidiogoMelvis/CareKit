@@ -32,6 +32,10 @@ class SideBarViewController: UIViewController, UITableViewDataSource, UITableVie
           handleUserAuthorization()
           //title = "Menu"
           view.backgroundColor = .white
+          guard HKHealthStore.isHealthDataAvailable() else {
+              print("HealthKit is not available on this device.")
+              return
+          }
       }
       
       
@@ -40,8 +44,6 @@ class SideBarViewController: UIViewController, UITableViewDataSource, UITableVie
                     let diastolicType = HKQuantityType.quantityType(forIdentifier: .bloodPressureDiastolic) else {
                   return
               }
-
-              let healthStore = HKHealthStore()
 
               let query = HKCorrelationQuery(type: HKObjectType.correlationType(forIdentifier: .bloodPressure)!, predicate: nil, samplePredicates: nil) { (query, correlations, error) in
                   guard let correlations = correlations else {
@@ -111,30 +113,51 @@ class SideBarViewController: UIViewController, UITableViewDataSource, UITableVie
           ])
       }
       
-      func handleUserAuthorization() {
-          let bloodPressureType = HKQuantityType.quantityType(forIdentifier: .bloodPressureSystolic)
-              
-              guard let bloodPressureQuantityType = bloodPressureType else {
-                 
-                  return
-              }
-
-              healthStore.requestAuthorization(toShare: nil, read: [bloodPressureQuantityType]) { (success, error) in
-                  if let error = error {
-                      
-                      print("Error requesting HealthKit authorization: \(error.localizedDescription)")
-                      return
-                  }
-
-                  if success {
-                      
-                      self.fetchBPReadings()
-                  } else {
-                     
-                      print("HealthKit authorization denied by the user")
-                  }
-              }
-      }
+//      func handleUserAuthorization() {
+//          let bloodPressureType = HKQuantityType.quantityType(forIdentifier: .bloodPressure)
+//
+//              guard let bloodPressureQuantityType = bloodPressureType else {
+//
+//                  return
+//              }
+//
+//              healthStore.requestAuthorization(toShare: nil, read: [bloodPressureQuantityType]) { (success, error) in
+//                  if let error = error {
+//
+//                      print("Error requesting HealthKit authorization: \(error.localizedDescription)")
+//                      return
+//                  }
+//
+//                  if success {
+//
+//                      self.fetchBPReadings()
+//
+//                  } else {
+//
+//                      print("HealthKit authorization denied by the user")
+//                  }
+//              }
+//      }
+  
+    func handleUserAuthorization() {
+        guard let bloodPressureType = HKObjectType.correlationType(forIdentifier: .bloodPressure) else {
+            print("Blood pressure type is not available.")
+            return
+        }
+        
+        healthStore.requestAuthorization(toShare: nil, read: [bloodPressureType]) { (success, error) in
+            if let error = error {
+                print("Error requesting HealthKit authorization: \(error.localizedDescription)")
+                return
+            }
+            
+            if success {
+                self.fetchBPReadings()
+            } else {
+                print("HealthKit authorization denied by the user")
+            }
+        }
+    }
 
 }
 
